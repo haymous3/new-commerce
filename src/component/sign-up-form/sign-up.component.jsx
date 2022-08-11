@@ -20,7 +20,7 @@ const SignUp = () => {
 
     const {displayName, email,password,confirmPassword} = formFields;
 
-    console.log(formFields)
+    // console.log(formFields)
 
     const resetFormField = () => {
         setFormFields(defaultFormFields)
@@ -58,9 +58,6 @@ const SignUp = () => {
             
 
         }
-        
-
-
 
     }
 

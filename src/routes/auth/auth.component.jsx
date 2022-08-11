@@ -1,9 +1,10 @@
-import { signWithGoogle, createUserProfile } from '../../utilities/firebase/firebase.utilities';
+import SignIn from '../../component/sign-in/sign-in.component';
 import SignUp from '../../component/sign-up-form/sign-up.component';
+import './auth.style.scss'
 // import { useEffect } from 'react';
 // import { getRedirectResult } from "firebase/auth"
 
-const SignIn = () => {
+const Auth = () => {
 
     // useEffect(async() => {
     //     const response = await getRedirectResult(auth);
@@ -13,21 +14,15 @@ const SignIn = () => {
     //     }
     // }, [])
 
-    const googleLogin = async () => {
-        const {user} = await signWithGoogle()
-
-        createUserProfile(user)
-    }
+  
  
 
     return(
-        <div>
-            <h1>This is our Sign In Page</h1>
-            <button onClick={googleLogin}>
-                sign in with google
-            </button>
+        <div className='authentication-container'>
+            <SignIn/>
+            
             <SignUp/>
         </div>
     )
 }
-export default SignIn;
+export default Auth;
