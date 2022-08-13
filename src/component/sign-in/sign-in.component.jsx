@@ -1,7 +1,8 @@
-import { signWithGoogle, createUserProfile,SignUserAuthWithEmailAndPassword } from "../../utilities/firebase/firebase.utilities"
+import { signWithGoogle,SignUserAuthWithEmailAndPassword } from "../../utilities/firebase/firebase.utilities"
 import Button from "../button/button.component"
 import FormInput from "../form-input/form-input.component";
 import { useState } from "react";
+ 
 import './sign-in.styes.scss'
 
 
@@ -20,6 +21,10 @@ const SignIn = () => {
 
     // console.log(formFields)
 
+
+
+    
+
     const resetFormField = () => {
         setFormFields(defaultFormFields)
     }
@@ -36,10 +41,13 @@ const SignIn = () => {
         event.preventDefault()
 
         try{
-            const {user} = await SignUserAuthWithEmailAndPassword(email,password)
-           await createUserProfile(user)
+            await SignUserAuthWithEmailAndPassword(email,password)
+  
+         
+           
            resetFormField()
-        }catch(error){
+        }
+        catch(error){
             switch (error.code){
                 case 'auth/wrong-password':
                 alert('Incorret Password')
@@ -57,9 +65,10 @@ const SignIn = () => {
     }
 
     const googleLogin = async () => {
-        const {user} = await signWithGoogle()
+        await signWithGoogle()
+      
 
-        createUserProfile(user)
+        
     }
     return(
         <div className="sign-in-conatiner">
