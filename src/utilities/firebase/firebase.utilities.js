@@ -87,5 +87,5 @@ return await signOut(auth)
 
 export const authListerners = (callback) => {
 
-  onAuthStateChanged(auth, callback, error, completed)
+  onAuthStateChanged(auth, callback)
 } 
