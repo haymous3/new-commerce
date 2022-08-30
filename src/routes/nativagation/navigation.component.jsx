@@ -40,6 +40,7 @@ const Navigation = () => {
                          </Link>
                     )
                 }
+             
                 <CartIcon/>
                
             </div>
