@@ -1,9 +1,9 @@
 import { signWithGoogle,SignUserAuthWithEmailAndPassword } from "../../utilities/firebase/firebase.utilities"
-import Button from "../button/button.component"
+import Button, { BUTTON_TYPES} from "../button/button.component"
 import FormInput from "../form-input/form-input.component";
 import { useState } from "react";
  
-import './sign-in.styes.scss'
+import { SignInConatiner, ClickConatiner } from './sign-in.styes.jsx'
 
 
 const SignIn = () => {
@@ -65,15 +65,12 @@ const SignIn = () => {
     }
 
     const googleLogin = async () => {
-        await signWithGoogle()
-      
-
-        
+        await signWithGoogle()   
     }
     return(
-        <div className="sign-in-conatiner">
+        <SignInConatiner>
             <h2>Already Created an Accont</h2>
-            <span>Sign in with your email and password</span>
+            <span>Sign in with your email and password OR Google</span>
             <form onSubmit={handleSubmit}>
                     
                 <FormInput 
@@ -93,15 +90,18 @@ const SignIn = () => {
                     name="password"
                     value={password}
                 />
+
+                <ClickConatiner>
+                <Button type="submit">Sign Up</Button>
+                <Button type="submit" onClick={googleLogin} buttonTypes={BUTTON_TYPES.google}>
+                Google
+                </Button>
+                 </ClickConatiner>
             
-                <div className="buttons-container">
-                    <Button type="submit">Sign Up</Button>
-                    <Button type="button" onClick={googleLogin} buttonTypes='google'>
-                    Google
-                    </Button>
-                </div>
+               
             </form>
-        </div>
+          
+        </SignInConatiner>
     )
 }
 

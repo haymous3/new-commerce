@@ -130,7 +130,7 @@ export const CartProvider = ({children}) => {
             
         },0)
 
-        console.log(count)
+      
 
         setTotalCartPrice(count)
 
